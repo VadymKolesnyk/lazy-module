@@ -1,0 +1,23 @@
+<h1>Welcome!
+  <button (click)="show1 = true">Show1</button>
+  <button (click)="show2 = true">Show2</button>
+  <button (click)="test = test + 1">++</button></h1>
+<div style="display: grid; grid-auto-flow: column;">
+  <app-sw-lazy
+    [when]="show1"
+    [component]="EntryComponent"
+    [inputBindings]="{
+      test: this.test
+    }"
+    [outputBindings]="{
+      cliked: this.onClicked
+    }"
+    (ready)="ready()">
+  </app-sw-lazy>
+  <app-sw-lazy
+    [when]="show2"
+    [component]="OneComponent"
+    (ready)="ready()">
+  </app-sw-lazy>
+</div>
+
